@@ -7,6 +7,7 @@ const nextBtn = document.querySelector('.next-btn');
 const zoomedImageContainer = document.querySelector('.zoomed-image-container');
 const zoomedImage = document.querySelector('.zoomed-image');
 const closeZoomBtn = document.querySelector('.close-zoom-btn');
+const buyBtnCarousel = document.querySelector('.buy-btn-carousel');
 let currentIndex = 0;
 
 nextBtn.addEventListener('click', () => {
@@ -29,6 +30,10 @@ imagesContainer.addEventListener('click', (event) => {
 
 closeZoomBtn.addEventListener('click', () => {
   zoomedImageContainer.style.display = 'none';
+});
+
+buyBtnCarousel.addEventListener('click', () => {
+  alert("You clicked Buy Now from the carousel!");
 });
 
 function updateCarousel() {
