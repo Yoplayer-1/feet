@@ -1,23 +1,21 @@
-const images = [
-  { src: 'images/image1.jpg', alt: 'Image 1', price: '10.00' },
-  { src: 'images/image2.jpg', alt: 'Image 2', price: '15.00' },
-  { src: 'images/image3.jpg', alt: 'Image 3', price: '20.00' }
-];
+// script.js
+const carousel = document.querySelector('.carousel');
+const imagesContainer = document.querySelector('.carousel-images');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+let currentIndex = 0;
 
-window.onload = () => {
-  const gallery = document.getElementById('gallery');
-  images.forEach(image => {
-    const card = document.createElement('div');
-    card.className = 'image-card';
-    card.innerHTML = `
-      <img src="${image.src}" alt="${image.alt}">
-      <p>Price: $${image.price}</p>
-      <button onclick="buyImage('${image.alt}', '${image.price}')">Buy Now</button>
-    `;
-    gallery.appendChild(card);
-  });
-};
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % imagesContainer.children.length;
+  updateCarousel();
+});
 
-function buyImage(alt, price) {
-  alert(`You selected ${alt} with a price of $${price}. Payment integration will be handled separately.`);
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + imagesContainer.children.length) % imagesContainer.children.length;
+  updateCarousel();
+});
+
+function updateCarousel() {
+  const offset = -currentIndex * carousel.offsetWidth;
+  imagesContainer.style.transform = `translateX(${offset}px)`;
 }
