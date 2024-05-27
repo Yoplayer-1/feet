@@ -87,6 +87,21 @@ footer {
   color: white;
   text-align: center;
   padding: 10px 0;
-  position: relative;
   width: 100%;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .image-card {
+    width: 100%;
+    margin: 0 10px;
+  }
+
+  footer {
+    padding: 20px;
+    box-sizing: border-box;
+  }
 }
