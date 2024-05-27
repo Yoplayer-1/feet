@@ -15,8 +15,9 @@
 }
 
 .carousel-images img {
-  width: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 button {
@@ -64,4 +65,10 @@ button {
   background-color: #4CAF50;
   color: white;
   cursor: pointer;
+}
+
+.buy-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
