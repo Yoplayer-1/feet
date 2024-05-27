@@ -1,17 +1,24 @@
 /* styles.css */
+.carousel-container {
+  position: relative;
+}
+
 .carousel {
   position: relative;
   max-width: 100%;
   overflow: hidden;
 }
+
 .carousel-images {
   display: flex;
   transition: transform 0.5s ease-in-out;
 }
+
 .carousel-images img {
   width: 100%;
   object-fit: cover;
 }
+
 button {
   position: absolute;
   top: 50%;
@@ -22,37 +29,39 @@ button {
   color: white;
   cursor: pointer;
 }
+
 .prev-btn {
   left: 0;
 }
+
 .next-btn {
   right: 0;
 }
 
-.zoomable {
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-}
-
-.zoomable:hover {
-  transform: scale(1.1);
-}
-
-.image-hover-effect {
-  transition: transform 0.3s ease-in-out;
-}
-
-.image-hover-effect:hover {
-  transform: scale(1.1);
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-}
-
-.gallery img {
+.zoomed-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.zoomed-image {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close-zoom-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
 }
