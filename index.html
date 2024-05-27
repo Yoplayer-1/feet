@@ -7,24 +7,20 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="carousel">
-    <div class="carousel-images">
-      <img src="images/image1.jpg" alt="Image 1">
-      <img src="images/image2.jpg" alt="Image 2">
-      <img src="images/image3.jpg" alt="Image 3">
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-images">
+        <img src="images/image1.jpg" alt="Image 1">
+        <img src="images/image2.jpg" alt="Image 2">
+        <img src="images/image3.jpg" alt="Image 3">
+      </div>
+      <button class="prev-btn">Prev</button>
+      <button class="next-btn">Next</button>
     </div>
-    <button class="prev-btn">Prev</button>
-    <button class="next-btn">Next</button>
-  </div>
-
-  <img src="images/image1.jpg" alt="Image 1" class="zoomable image-hover-effect" loading="lazy">
-  <img src="images/image2.jpg" alt="Image 2" class="zoomable image-hover-effect" loading="lazy">
-  <img src="images/image3.jpg" alt="Image 3" class="zoomable image-hover-effect" loading="lazy">
-
-  <div class="gallery">
-    <img src="images/image1.jpg" alt="Image 1">
-    <img src="images/image2.jpg" alt="Image 2">
-    <img src="images/image3.jpg" alt="Image 3">
+    <div class="zoomed-image-container">
+      <img src="" alt="Zoomed Image" class="zoomed-image">
+      <button class="close-zoom-btn">Close</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
