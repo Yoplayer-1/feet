@@ -1,42 +1,23 @@
-// script.js
-const carouselContainer = document.querySelector('.carousel-container');
-const carousel = document.querySelector('.carousel');
-const imagesContainer = document.querySelector('.carousel-images');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-const zoomedImageContainer = document.querySelector('.zoomed-image-container');
-const zoomedImage = document.querySelector('.zoomed-image');
-const closeZoomBtn = document.querySelector('.close-zoom-btn');
-const buyBtnCarousel = document.querySelector('.buy-btn-carousel');
-let currentIndex = 0;
+const images = [
+  { src: 'images/image1.jpg', alt: 'Image 1', price: '10.00' },
+  { src: 'images/image2.jpg', alt: 'Image 2', price: '15.00' },
+  { src: 'images/image3.jpg', alt: 'Image 3', price: '20.00' }
+];
 
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % imagesContainer.children.length;
-  updateCarousel();
-});
+window.onload = () => {
+  const gallery = document.getElementById('gallery');
+  images.forEach(image => {
+    const card = document.createElement('div');
+    card.className = 'image-card';
+    card.innerHTML = `
+      <img src="${image.src}" alt="${image.alt}">
+      <p>Price: $${image.price}</p>
+      <button onclick="buyImage('${image.alt}', '${image.price}')">Buy Now</button>
+    `;
+    gallery.appendChild(card);
+  });
+};
 
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + imagesContainer.children.length) % imagesContainer.children.length;
-  updateCarousel();
-});
-
-imagesContainer.addEventListener('click', (event) => {
-  if (event.target.tagName === 'IMG') {
-    const imgUrl = event.target.src;
-    zoomedImage.src = imgUrl;
-    zoomedImageContainer.style.display = 'flex';
-  }
-});
-
-closeZoomBtn.addEventListener('click', () => {
-  zoomedImageContainer.style.display = 'none';
-});
-
-buyBtnCarousel.addEventListener('click', () => {
-  alert("You clicked Buy Now from the carousel!");
-});
-
-function updateCarousel() {
-  const offset = -currentIndex * carousel.offsetWidth;
-  imagesContainer.style.transform = `translateX(${offset}px)`;
+function buyImage(alt, price) {
+  alert(`You selected ${alt} with a price of $${price}. Payment integration will be handled separately.`);
 }
